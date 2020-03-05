@@ -24,7 +24,6 @@ export const addGoal = (data: Goals) => (dispatch: any) => {
 };
 
 export const removeGoal = (title: string) => (dispatch: any) => {
-  console.log(title);
   return dispatch({
     type: REMOVE_GOAL,
     title
@@ -32,6 +31,7 @@ export const removeGoal = (title: string) => (dispatch: any) => {
 };
 
 export const editGoal = (data: Goals) => (dispatch: any) => {
+  console.log('edit');
   return dispatch({
     type: EDIT_GOAL,
     data

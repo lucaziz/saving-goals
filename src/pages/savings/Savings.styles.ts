@@ -1,43 +1,50 @@
 import styled from 'styled-components';
-import { Link } from 'react-router-dom';
-
-export const BackButton = styled(Link)`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding-right: 0.5rem;
-  width: 7rem;
-  height: 7rem;
-  background-color: ${props => props.theme.colors.white};
-  border: solid 1px ${props => props.theme.colors.lightGrey};
-  border-radius: 50%;
-`;
+import { device } from '~/styles/tools/breakpoints.styles';
 
 export const Section = styled.section`
   margin: 0 auto;
-  padding: ${props => props.theme.space[4]}rem 0;
+  padding: ${props => props.theme.space[3]}rem 1rem;
   width: 750px;
+  max-width: 100%;
+
+  ${device.desktop} {
+    padding: ${props => props.theme.space[4]}rem 0;
+  }
 `;
 
 export const SavingsHeading = styled.header`
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  padding: ${props => props.theme.space[4]}rem 0;
+  justify-content: space-between;
+  padding: ${props => props.theme.space[4]}rem 0
+    ${props => props.theme.space[5]}rem;
   width: 100%;
 
   &:after {
     content: '';
     width: 7rem;
   }
+
+  ${device.mobile} {
+    justify-content: center;
+    padding: 1rem 0 2.4rem;
+
+    &:after {
+      display: none;
+    }
+  }
 `;
 
-export const H1 = styled.h1`
+export const HeadingTitle = styled.h1`
   margin: 0;
   padding: 0;
   font-weight: bold;
   font-size: 3.2rem;
   color: ${props => props.theme.colors.blue};
+
+  ${device.mobile} {
+    font-size: 2rem;
+  }
 `;
 
 export const ListOfGoals = styled.ul`
@@ -48,13 +55,17 @@ export const ListOfGoals = styled.ul`
 `;
 
 export const ItemGoal = styled.li`
-  margin: ${props => props.theme.space[3]}rem 0;
+  margin: 0 0 ${props => props.theme.space[4]}rem;
   background-color: ${props => props.theme.colors.white};
   border: solid 1px ${props => props.theme.colors.lightGrey};
   border-radius: 0.8rem;
+
+  ${device.mobile} {
+    margin: 0 0 ${props => props.theme.space[3]}rem;
+  }
 `;
 
-export const LinkGoal = styled(Link)`
+export const LinkGoal = styled.a`
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -66,9 +77,15 @@ export const LinkGoal = styled(Link)`
   font-size: 2rem;
   border-radius: 0.8rem;
   transition: box-shadow 100ms linear;
+  cursor: pointer;
 
   &:hover {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+
+  ${device.mobile} {
+    padding: ${props => props.theme.space[3]}rem
+      ${props => props.theme.space[4]}rem;
   }
 `;
 

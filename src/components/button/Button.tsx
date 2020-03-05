@@ -1,26 +1,9 @@
 import React from 'react';
 import { ButtonProps } from './Button.types';
-import { CustomButton, CustomLink } from './Button.styles';
+import { CustomButton } from './Button.styles';
 
 const Button = (props: ButtonProps) => {
-  const {
-    onClick,
-    loading,
-    disabled,
-    children,
-    to,
-    as,
-    size,
-    ...defaultProps
-  } = props;
-
-  if (as === 'Link') {
-    return (
-      <CustomLink to={to} itemType={size}>
-        {children}
-      </CustomLink>
-    );
-  }
+  const { onClick, loading, disabled, children, size, ...defaultProps } = props;
 
   return (
     <CustomButton

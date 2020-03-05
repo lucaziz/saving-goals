@@ -82,3 +82,10 @@ npm run lint
 ```
 npm run test
 ```
+
+### To improve
+
+- Implement inline src instead of usage of *img*;
+- Confirmation (modal?) when removing a goal;
+- More micro interactions;
+- More test cases;

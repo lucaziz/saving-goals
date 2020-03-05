@@ -1,8 +1,6 @@
 import React from 'react';
 import Button from '../Button';
 import { buildSpy, mountWithTheme, noop } from '~/utils/testHelpers';
-import { CustomLink } from '../Button.styles';
-import { BrowserRouter } from 'react-router-dom';
 
 describe('Button', () => {
   it('should render children', () => {
@@ -41,16 +39,5 @@ describe('Button', () => {
     button.find('button').simulate('click');
 
     expect(spy).not.toHaveBeenCalled();
-  });
-
-  it('should render button as a link if prop is set', () => {
-    const button = mountWithTheme(
-      <BrowserRouter>
-        <Button to="/" as="Link">
-          text
-        </Button>
-      </BrowserRouter>
-    );
-    expect(button.find(CustomLink).exists()).toEqual(true);
   });
 });

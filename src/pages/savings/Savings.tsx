@@ -1,12 +1,11 @@
 import React from 'react';
-import { Redirect } from 'react-router-dom';
+import { Redirect, useHistory } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { Goals, SavingGoalsState } from '~/reducers';
 import {
-  BackButton,
   Section,
   SavingsHeading,
-  H1,
+  HeadingTitle,
   ListOfGoals,
   ItemGoal,
   LinkGoal,
@@ -14,15 +13,15 @@ import {
   RemoveButton
 } from './Savings.styles';
 import Button from '~/components/button/Button';
+import BackButton from '~/components/back-button/BackButton';
 import { Actions, removeGoal } from '~/actions';
 
-const arrowIcon = require('~/assets/icons/arrow.svg') as string;
 const editIcon = require('~/assets/icons/edit.svg') as string;
 const removeIcon = require('~/assets/icons/delete.svg') as string;
 
-const Savings = (props: SavingGoalsState & Actions) => {
+const Savings = (props: SavingGoalsState & Partial<Actions>) => {
   const { goals, removeGoal } = props;
-
+  const history = useHistory();
   if (Array.isArray(goals) && !goals.length) {
     return <Redirect to="/savings/detail" />;
   }
@@ -30,27 +29,25 @@ const Savings = (props: SavingGoalsState & Actions) => {
   const handleRemoveGoal = (title: string) => (
     event: React.MouseEvent<HTMLElement>
   ) => {
-    event.preventDefault();
+    event.stopPropagation();
     removeGoal(title);
   };
+
+  const handleEditGoal = (goal: Goals) => () =>
+    history.push('/savings/detail', { title: goal.title });
+
+  const handleAddNewGoal = () => history.push('/savings/detail');
 
   return (
     <Section>
       <SavingsHeading>
-        <BackButton to="/">
-          <img src={arrowIcon} width={14} height={25} alt="Back" />
-        </BackButton>
-        <H1>Saving Goal</H1>
+        <BackButton to="/" />
+        <HeadingTitle>Saving Goal</HeadingTitle>
       </SavingsHeading>
       <ListOfGoals>
         {goals.map((goal: Goals) => (
           <ItemGoal key={goal.title}>
-            <LinkGoal
-              to={{
-                pathname: '/savings/detail',
-                state: { title: goal.title }
-              }}
-            >
+            <LinkGoal onClick={handleEditGoal(goal)}>
               {goal.title}
               <ItemGoalActions>
                 <img src={editIcon} width={16} height={16} alt="Edit Goal" />
@@ -70,7 +67,7 @@ const Savings = (props: SavingGoalsState & Actions) => {
       </ListOfGoals>
 
       <div className="centered-content">
-        <Button as="Link" to="/savings/detail" size="medium">
+        <Button onClick={handleAddNewGoal} size="medium">
           Add a new goal
         </Button>
       </div>

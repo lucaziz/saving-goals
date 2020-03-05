@@ -8,6 +8,6 @@ export interface ButtonProps
   disabled?: boolean;
   to?: string;
   rel?: string;
-  as?: 'button' | 'Link';
+  as?: any;
   size?: 'medium' | 'large';
 }

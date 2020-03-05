@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { device } from '~/styles/tools/breakpoints.styles';
 
 interface BenefitProps {
   disabled?: boolean;
@@ -11,13 +12,24 @@ export const HomeContent = styled.div`
   justify-content: center;
   flex: 1;
   padding: ${props => props.theme.space[6]}rem 0;
+
+  ${device.tablet} {
+    padding: ${props => props.theme.space[6]}rem 1rem;
+  }
 `;
 
 export const HomeHeading = styled.h1`
+  margin-bottom: ${props => props.theme.space[5]}rem;
+  padding: 0 ${props => props.theme.global.gutterSpace / 2}px;
   font-family: ${props => props.theme.global.secondaryFont};
   font-size: 4rem;
   font-weight: 700;
-  margin-bottom: ${props => props.theme.space[5]}rem;
+
+  ${device.mobile} {
+    padding: 0 calc(1rem + ${props => props.theme.global.gutterSpace / 2}px);
+    font-size: 2.6rem;
+    text-align: center;
+  }
 `;
 
 export const ListOfBenefits = styled.ul`
@@ -26,6 +38,10 @@ export const ListOfBenefits = styled.ul`
   margin: 0;
   padding: 0;
   list-style: none;
+
+  ${device.mobile} {
+    padding: 0 1rem;
+  }
 `;
 
 export const Benefit = styled.li`
@@ -33,7 +49,7 @@ export const Benefit = styled.li`
   flex-flow: column;
   align-items: center;
   justify-content: center;
-  margin: 0 ${props => props.theme.global.gutterSpace / 2}px;
+  margin: ${props => props.theme.global.gutterSpace / 2}px;
   padding: 0;
   min-height: 19rem;
   list-style: none;
@@ -57,6 +73,10 @@ export const Benefit = styled.li`
   a {
     text-decoration: none;
     color: ${props => props.theme.colors.black};
+  }
+
+  ${device.mobile} {
+    width: calc(50% - ${props => props.theme.global.gutterSpace}px);
   }
 `;
 

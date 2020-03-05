@@ -1,9 +1,9 @@
-import styled, { css, ThemedStyledProps } from 'styled-components';
+import styled, { ThemedStyledProps } from 'styled-components';
 import { lighten } from 'polished';
 import { ButtonProps } from './Button.types';
-import { Link } from 'react-router-dom';
+import { device } from '~/styles/tools/breakpoints.styles';
 
-const buttonStyle = css`
+export const CustomButton = styled.button`
   position: relative;
   display: flex;
   align-items: center;
@@ -57,12 +57,8 @@ const buttonStyle = css`
     max-width: 30rem;
     height: 5.5rem;
   `}
-`;
 
-export const CustomButton = styled.button`
-  ${buttonStyle}
-`;
-
-export const CustomLink = styled(Link)`
-  ${buttonStyle}
+  ${device.mobile} {
+    height: 5.5rem;
+  }
 `;

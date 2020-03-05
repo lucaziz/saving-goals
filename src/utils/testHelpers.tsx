@@ -13,6 +13,7 @@ export const simulateTyping = (element: any, value: string) =>
 
 export function mountWithTheme(child: any) {
   return mount(child, {
+    // eslint-disable-next-line react/display-name
     wrappingComponent: ({ children }) => (
       <ThemeProvider theme={theme}>{children}</ThemeProvider>
     )
@@ -21,6 +22,7 @@ export function mountWithTheme(child: any) {
 
 export function shallowWithTheme(child: any) {
   return shallow(child, {
+    // eslint-disable-next-line react/display-name
     wrappingComponent: ({ children }) => (
       <ThemeProvider theme={theme}>{children}</ThemeProvider>
     )

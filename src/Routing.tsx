@@ -4,19 +4,26 @@ import Home from './pages/home/Home';
 import Savings from './pages/savings/Savings';
 import SavingsDetail from './pages/savings/SavingsDetail';
 import Layout from './components/layout/Layout';
-import Header from './components/header/Header';
 
 const Routing: React.FunctionComponent = () => {
   return (
-    <Layout>
-      <Router>
+    <Router>
+      <Layout>
         <Switch>
-          <Route exact path="/" component={Home} />
-          <Route exact path="/savings" component={Savings} />
-          <Route path="/savings/detail" component={SavingsDetail} />
+          <Route exact path="/">
+            <Home />
+          </Route>
+
+          <Route exact path="/savings">
+            <Savings />
+          </Route>
+
+          <Route path="/savings/detail">
+            <SavingsDetail />
+          </Route>
         </Switch>
-      </Router>
-    </Layout>
+      </Layout>
+    </Router>
   );
 };
 
