@@ -91,7 +91,7 @@ npm run test
 - More test cases;
 - Componentization (theme)
 
-#Getting Started
+# Getting Started
 1. In the Home screen, you can click in the 'Saving Goal' Card.
 
 2. For now you will be redirected to the Savings Detail page, where you can type what is your goal, total amount, reach goal by (starts with 48 months from now);
@@ -111,4 +111,4 @@ npm run test
 
 Mobile version is fancy;
 
-####Enjoy.
+#### Enjoy.
