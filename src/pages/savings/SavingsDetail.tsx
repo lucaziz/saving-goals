@@ -51,7 +51,8 @@ const SavingsDetail = (props: SavingGoalsState & Partial<Actions>) => {
 
   useEffect(() => {
     const location: any = history.location;
-    if (location && location.state) {
+    const navigatedByGoal = location && location.state;
+    if (navigatedByGoal) {
       setEditMode(true);
       const goalToEdit = goals.filter(
         (goal: Goals) => goal.title === location.state.title

@@ -22,7 +22,9 @@ const removeIcon = require('~/assets/icons/delete.svg') as string;
 const Savings = (props: SavingGoalsState & Partial<Actions>) => {
   const { goals, removeGoal } = props;
   const history = useHistory();
-  if (Array.isArray(goals) && !goals.length) {
+
+  const emptyGoals = Array.isArray(goals) && !goals.length;
+  if (emptyGoals) {
     return <Redirect to="/savings/detail" />;
   }
 
