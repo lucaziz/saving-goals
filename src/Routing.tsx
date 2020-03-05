@@ -6,26 +6,18 @@ import SavingsDetail from './pages/savings/SavingsDetail';
 import Layout from './components/layout/Layout';
 import Header from './components/header/Header';
 
-const App: React.FunctionComponent = () => {
+const Routing: React.FunctionComponent = () => {
   return (
     <Layout>
-      <Header />
-
       <Router>
         <Switch>
-          <Route exact path="/">
-            <Home />
-          </Route>
-          <Route exact path="/savings">
-            <Savings />
-          </Route>
-          <Route path="/savings/detail">
-            <SavingsDetail />
-          </Route>
+          <Route exact path="/" component={Home} />
+          <Route exact path="/savings" component={Savings} />
+          <Route path="/savings/detail" component={SavingsDetail} />
         </Switch>
       </Router>
     </Layout>
   );
 };
 
-export default App;
+export default Routing;

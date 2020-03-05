@@ -6,11 +6,11 @@ export interface InputProps {
   value?: string;
   icon?: React.ReactNode | string;
   onChange?: (value: string) => void;
-  onBlur?: (value: string) => void;
   label?: string;
   hasError?: boolean;
   errorMsg?: string;
   disabled?: boolean;
   loading?: boolean;
   placeholder?: string;
+  min?: string;
 }

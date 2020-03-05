@@ -11,6 +11,7 @@
     "checkJs": false,
     "allowSyntheticDefaultImports": true,
     "declaration": true,
+    "strict": false,
     "paths": {
       "~*": ["./src/*"],
       "/assets/": ["./src/assets/*"],

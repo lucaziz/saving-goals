@@ -54,6 +54,7 @@ export const CustomInput = styled.input`
   border-radius: ${radiusValue};
   background-color: ${props => props.theme.colors.white};
   border: solid 1px ${props => props.theme.colors.lightGrey};
+  -moz-appearance: textfield;
 
   &:focus {
     border-color: ${props => props.theme.colors.blue};
@@ -64,6 +65,12 @@ export const CustomInput = styled.input`
     font-size: 1.8rem;
     font-weight: 600;
     color: ${props => props.theme.colors.grey};
+  }
+
+  &::-webkit-outer-spin-button,
+  &::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
   }
 `;
 

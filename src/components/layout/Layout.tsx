@@ -3,13 +3,17 @@ import { ThemeProvider } from 'styled-components';
 import GlobalStyle from '~/styles/global.styles';
 import { theme } from '~/styles/theme/theme';
 import { LayoutProps } from './Layout.types';
-import { Main } from './Layout.styles';
+import { Main, MainContainer } from './Layout.styles';
+import Header from '~/components/header/Header';
 
 const Layout = (props: LayoutProps) => {
   const { children } = props;
   return (
     <ThemeProvider theme={theme}>
-      <Main>{children}</Main>
+      <MainContainer>
+        <Header />
+        <Main>{children}</Main>
+      </MainContainer>
       <GlobalStyle />
     </ThemeProvider>
   );

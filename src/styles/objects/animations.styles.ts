@@ -21,3 +21,8 @@ export const animaExpandVertical = keyframes`
   from { transform: scaleY(0);}
   to { transform: scaleY(1);}
 `;
+
+export const rotate = keyframes`
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+`;

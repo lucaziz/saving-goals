@@ -16,7 +16,6 @@ const Input = (props: InputProps) => {
     label,
     value,
     onChange,
-    onBlur,
     type,
     name,
     hasError,
@@ -24,7 +23,8 @@ const Input = (props: InputProps) => {
     disabled,
     loading,
     icon,
-    placeholder
+    placeholder,
+    min
   } = props;
 
   useEffect(() => {
@@ -37,10 +37,6 @@ const Input = (props: InputProps) => {
     if (!loading && !disabled) {
       return onChange && onChange(event.currentTarget.value);
     }
-  };
-
-  const inputBlur = (event: React.FormEvent<HTMLInputElement>) => {
-    return onBlur && onBlur(event.currentTarget.value);
   };
 
   return (
@@ -57,7 +53,7 @@ const Input = (props: InputProps) => {
           readOnly={loading}
           id={`form-field-${name.toLowerCase()}`}
           onChange={inputChange}
-          onBlur={inputBlur}
+          min={min}
           placeholder={placeholder}
         />
       </FieldInput>

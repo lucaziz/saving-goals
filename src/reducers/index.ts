@@ -1,7 +1,8 @@
 export interface Goals {
   title: string;
   amount: number;
-  reach: string;
+  reach: number;
+  lastMonth: string;
   monthlyAmount: number;
 }
 
@@ -10,16 +11,46 @@ export interface SavingGoalsState {
 }
 
 const initialState = (): SavingGoalsState => ({
-  goals: []
+  goals: [
+    {
+      title: 'Go to college',
+      amount: 25000,
+      reach: 48,
+      lastMonth: 'October 2024',
+      monthlyAmount: 521
+    },
+    {
+      title: 'Buy a house',
+      amount: 25000,
+      reach: 48,
+      lastMonth: 'October 2024',
+      monthlyAmount: 521
+    }
+  ]
 });
 
 const savingGoalsReducer = (
   state = initialState(),
   action: any
 ): SavingGoalsState => {
-  console.log(action);
   if (action.type === 'ADD_GOAL') {
-    return { ...state, ...[action.response] };
+    return { goals: [...state.goals, ...[action.data]] };
+  }
+
+  if (action.type === 'EDIT_GOAL') {
+    const newGoals = state.goals.map(goal => {
+      let returnValue = { ...goal };
+      if (goal.title === action.data.title) {
+        returnValue = action.data;
+      }
+      return returnValue;
+    });
+    return { goals: newGoals };
+  }
+
+  if (action.type === 'REMOVE_GOAL') {
+    const newGoals = state.goals.filter(goal => goal.title !== action.title);
+    return { goals: newGoals };
   }
 
   return state;

@@ -1,16 +1,14 @@
 import { theme } from '../theme/theme';
 
-export const trumpsUtilities = () => (`
-  .full-img {
+export const trumpsUtilities = () => `
+  .centered-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     width: 100%;
-    height: 100%;
-    object-fit: cover;
 
-    // amp
-    > img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
+    &__full {
+      flex: 1;
     }
   }
 
@@ -21,4 +19,4 @@ export const trumpsUtilities = () => (`
   .secondary-font {
     font-family: ${theme.global.secondaryFont};
   }
-`);
+`;

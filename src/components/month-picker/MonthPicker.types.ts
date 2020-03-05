@@ -1,5 +1,5 @@
 export interface MonthPickerProps {
   monthsFromNow: number;
   label?: string;
-  onChange?: (value: number) => void;
+  onChange?: (value: number, description: string) => void;
 }
