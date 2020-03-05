@@ -11,22 +11,7 @@ export interface SavingGoalsState {
 }
 
 const initialState = (): SavingGoalsState => ({
-  goals: [
-    {
-      title: 'Go to college',
-      amount: 25000,
-      reach: 48,
-      lastMonth: 'October 2024',
-      monthlyAmount: 521
-    },
-    {
-      title: 'Buy a house',
-      amount: 25000,
-      reach: 48,
-      lastMonth: 'October 2024',
-      monthlyAmount: 521
-    }
-  ]
+  goals: []
 });
 
 const savingGoalsReducer = (
