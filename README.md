@@ -1,6 +1,6 @@
 ## The Saving Goal Plan Simulation Screen
 
-![Saving Goal Plan Mockup Desktop](https://github.com/OriginFinancial/frontend-take-home-assignment/blob/master/mockups/saving-goal-plan-desk.png)
+![Saving Goal Plan Mockup Desktop](https://github.com/lucaziz/saving-goals/blob/master/mockups/saving-goal-plan-desk.png)
 
 ## Usage
 
